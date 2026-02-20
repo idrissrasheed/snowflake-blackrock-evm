@@ -90,37 +90,36 @@ def generate_followup_questions(pain_points, primary_use_case):
         
     return questions
 
-def run_workshop_summarizer(customer_archetype_profile):
+def run_workshop_summarizer():
     """
     Orchestrates the 'VE Workshop Facilitator Mode'.
-    Takes the raw text from the synthetic customer profile and outputs a structured VE plan.
+    Reads the scraped facts from the data_pipeline and outputs a structured VE plan.
     """
-    transcript = customer_archetype_profile.get("value_discovery_notes", "")
-    use_case = customer_archetype_profile.get("primary_use_case", "Data Platform")
+    data_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "scraped_blk_facts.json")
+    
+    try:
+        with open(data_path, "r") as f:
+            facts = json.load(f)
+    except FileNotFoundError:
+        return {"Raw_Transcript": "No scraped data found. Run scrape_blackrock_urls.py.", "Extracted_Pain_Points": [], "Hypothesized_Value_Drivers": {}, "VE_Next_Discovery_Questions": []}
+        
+    # Combine all scraped context into one transcript for the AI to parse
+    transcript = "\\n".join(facts.values())
+    use_case = "Aladdin Data Cloud"
     
     pain_points = extract_pain_points(transcript)
     value_drivers = map_pain_points_to_drivers(pain_points)
     next_questions = generate_followup_questions(pain_points, use_case)
     
     return {
-        "Raw_Transcript": transcript,
+        "Raw_Transcript": tuple(facts.keys()), # just returning the keys as context info instead of massive text blobs
         "Extracted_Pain_Points": pain_points,
         "Hypothesized_Value_Drivers": value_drivers,
         "VE_Next_Discovery_Questions": next_questions
     }
 
 if __name__ == "__main__":
-    # Test the agent parser with one of the synthetic customers
-    try:
-        data_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "synthetic_customers.json")
-        with open(data_path, "r") as f:
-            customers = json.load(f)
-            
-        test_customer = customers[0] # Retail Marketing
-        
-        print(f"\n--- Running AI Agent VE Summarizer for: {test_customer['customer_name']} ---")
-        result = run_workshop_summarizer(test_customer)
-        print(json.dumps(result, indent=2))
-        
-    except FileNotFoundError:
-        print("Run generate_data.py first to create synthetic customers.")
+    # Test the agent parser with the actual BlackRock scraped facts
+    print(f"\\n--- Running AI Agent VE Summarizer for: BlackRock Aladdin ---")
+    result = run_workshop_summarizer()
+    print(json.dumps(result, indent=2))

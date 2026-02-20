@@ -24,14 +24,14 @@ pip install -r requirements.txt
 ```
 2. Pull the latest BlackRock SEC data:
 ```bash
-python ingest_sec_data.py
-python extract_sec_data.py
+python data_pipeline/ingest_sec_data.py
+python data_pipeline/extract_sec_data.py
 ```
 3. Scrape the bespoke URL facts:
 ```bash
-python scrape_blackrock_urls.py
+python data_pipeline/scrape_blackrock_urls.py
 ```
 4. Run the VE Presentation Dashboard:
 ```bash
-streamlit run app.py
+streamlit run src/app.py
 ```
