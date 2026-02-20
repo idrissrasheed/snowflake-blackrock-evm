@@ -17,7 +17,7 @@ st.divider()
 tab1, tab2, tab3 = st.tabs(["The Business Case", "The Financial Model", "AI Discovery Brief"])
 
 with tab1:
-    # 1. Customer Background
+    # Customer Background
     st.header("1. Customer Background: BlackRock Aladdin")
     st.markdown("""
     * **Global investment & risk platform** handling massive institutional volumes.
@@ -26,7 +26,7 @@ with tab1:
     """)
     st.divider()
     
-    # 2. Pain Points
+    # Pain Points
     st.header("2. Pain Points")
     st.markdown("""
     * **Rigid batch processing** delaying critical market risk assessments.
@@ -36,7 +36,7 @@ with tab1:
     """)
     st.divider()
     
-    # 3. Snowflake Value Hypothesis
+    # Snowflake Value Hypothesis
     st.header("3. Snowflake Value Hypothesis")
     st.markdown("""
     * **Elastic compute for risk modeling** allowing BlackRock to spin up instantly and scale down to zero when models finish.
@@ -46,7 +46,7 @@ with tab1:
     """)
 
 with tab2:
-    # 4. Financial Model
+    # Financial Model
     st.header("4. Financial Model (Aladdin Expansion)")
     st.markdown("Adjust the levers below to dynamically calculate the expected financial return of moving to Snowflake.")
     
