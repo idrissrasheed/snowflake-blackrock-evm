@@ -1,0 +1,482 @@
+[
+    {
+        "customer_name": "Comcast",
+        "industry": "Advertising, Media & Entertainment",
+        "primary_use_case": "AI",
+        "company_size": "Enterprise",
+        "data_maturity": "High",
+        "current_metrics": {
+            "total_data_tb": 7200,
+            "dedicated_compute_nodes": 263,
+            "data_team_fte_count": 21.3
+        },
+        "current_annual_costs": {
+            "storage": 2160067.12,
+            "compute": 2529443.53,
+            "labor": 3401160.88,
+            "licensing": 1036575.18,
+            "total": 9127246.7
+        },
+        "value_discovery_notes": "The Advertising, Media & Entertainment team at Comcast is actively modernizing their data architecture to support advanced AI workloads. While their data practice is mature, they need a more elastic, unified platform to securely share governed data across the enterprise and accelerate time-to-market for complex initiatives. \n\nRelevant Case Study: Comcast (https://www.snowflake.com/en/customers/all-customers/case-study/comcast/) \nHighly Specific Pertinent Information: 'Learn how Comcast has leveraged the Snowflake Data Cloud to unify its data, improve threat hunting and gain a much clearer view into its cyber risk posture.'"
+    },
+    {
+        "customer_name": "Keywords Studios",
+        "industry": "Advertising, Media & Entertainment",
+        "primary_use_case": "AI",
+        "company_size": "Mid-Market",
+        "data_maturity": "High",
+        "current_metrics": {
+            "total_data_tb": 2406,
+            "dedicated_compute_nodes": 116,
+            "data_team_fte_count": 4.5
+        },
+        "current_annual_costs": {
+            "storage": 721928.6,
+            "compute": 1110711.7,
+            "labor": 720095.61,
+            "licensing": 257736.74,
+            "total": 2810472.65
+        },
+        "value_discovery_notes": "The Advertising, Media & Entertainment team at Keywords Studios is actively modernizing their data architecture to support advanced AI workloads. While their data practice is mature, they need a more elastic, unified platform to securely share governed data across the enterprise and accelerate time-to-market for complex initiatives. \n\nRelevant Case Study: Keywords Studios (https://www.snowflake.com/en/customers/all-customers/case-study/keywords-studios/) \nHighly Specific Pertinent Information: 'Making the most of its extensive videogame industry insights, Keywords Studios enriches its vast player knowledge and data in Snowflake'"
+    },
+    {
+        "customer_name": "Power Digital",
+        "industry": "Advertising, Media & Entertainment",
+        "primary_use_case": "Analytics",
+        "company_size": "Large Enterprise",
+        "data_maturity": "Medium",
+        "current_metrics": {
+            "total_data_tb": 11975,
+            "dedicated_compute_nodes": 434,
+            "data_team_fte_count": 78.1
+        },
+        "current_annual_costs": {
+            "storage": 3592513.91,
+            "compute": 4162163.67,
+            "labor": 12493187.64,
+            "licensing": 1909039.47,
+            "total": 22156904.68
+        },
+        "value_discovery_notes": "The Advertising, Media & Entertainment team at Power Digital is actively modernizing their data architecture to support advanced Analytics workloads. They have begun transitioning to the cloud but are dealing with fragmented data environments, unpredictable compute costs, and performance bottlenecks during peak business hours. \n\nRelevant Case Study: Power Digital (https://www.snowflake.com/en/customers/all-customers/case-study/power-digital/) \nHighly Specific Pertinent Information: 'Rather than gut feelings, Power Digital relies on nova \u2014 a proprietary platform built on Snowflake, with AI capabilities \u2014 to build unforgettable marketing campaigns based on real-time data insights.'"
+    },
+    {
+        "customer_name": "BlackRock",
+        "industry": "Financial Services",
+        "primary_use_case": "Analytics",
+        "company_size": "Mid-Market",
+        "data_maturity": "High",
+        "current_metrics": {
+            "total_data_tb": 1045,
+            "dedicated_compute_nodes": 75,
+            "data_team_fte_count": 5.5
+        },
+        "current_annual_costs": {
+            "storage": 313430.15,
+            "compute": 723103.0,
+            "labor": 881851.19,
+            "licensing": 156098.65,
+            "total": 2074482.99
+        },
+        "value_discovery_notes": "The Financial Services team at BlackRock is actively modernizing their data architecture to support advanced Analytics workloads. While their data practice is mature, they need a more elastic, unified platform to securely share governed data across the enterprise and accelerate time-to-market for complex initiatives. \n\nRelevant Case Study: BlackRock (https://www.snowflake.com/en/customers/all-customers/case-study/blackrock/) \nHighly Specific Pertinent Information: 'Snowflake is part of BlackRock\u2019s tech stack, powering the Aladdin\u00ae Data Cloud as a single, centralized data platform that equips clients with timely insights for smart investment decisions.'"
+    },
+    {
+        "customer_name": "Ramp",
+        "industry": "Financial Services",
+        "primary_use_case": "Data Engineering",
+        "company_size": "Large Enterprise",
+        "data_maturity": "High",
+        "current_metrics": {
+            "total_data_tb": 12951,
+            "dedicated_compute_nodes": 753,
+            "data_team_fte_count": 33.6
+        },
+        "current_annual_costs": {
+            "storage": 3885313.07,
+            "compute": 7226685.98,
+            "labor": 5374787.22,
+            "licensing": 1656549.1,
+            "total": 18143335.37
+        },
+        "value_discovery_notes": "The Financial Services team at Ramp is actively modernizing their data architecture to support advanced Data Engineering workloads. While their data practice is mature, they need a more elastic, unified platform to securely share governed data across the enterprise and accelerate time-to-market for complex initiatives. \n\nRelevant Case Study: Ramp (https://www.snowflake.com/en/customers/all-customers/case-study/ramp/) \nHighly Specific Pertinent Information: 'Finance automation platform Ramp turns to Snowflake, Dbt, and Hightouch to keep pace with the company\u2019s rapid data growth and business demand.'"
+    },
+    {
+        "customer_name": "Square",
+        "industry": "Financial Services",
+        "primary_use_case": "Data Engineering",
+        "company_size": "Large Enterprise",
+        "data_maturity": "Medium",
+        "current_metrics": {
+            "total_data_tb": 6546,
+            "dedicated_compute_nodes": 545,
+            "data_team_fte_count": 51.8
+        },
+        "current_annual_costs": {
+            "storage": 1963808.59,
+            "compute": 5232141.02,
+            "labor": 8285506.04,
+            "licensing": 2966021.49,
+            "total": 18447477.14
+        },
+        "value_discovery_notes": "The Financial Services team at Square is actively modernizing their data architecture to support advanced Data Engineering workloads. They have begun transitioning to the cloud but are dealing with fragmented data environments, unpredictable compute costs, and performance bottlenecks during peak business hours. \n\nRelevant Case Study: Square (https://www.snowflake.com/en/customers/all-customers/case-study/square/) \nHighly Specific Pertinent Information: 'Discover how Square leverages Snowflake's scalable data architecture to analyze petabytes of data, identify product opportunities, and protect from fraud.'"
+    },
+    {
+        "customer_name": "Ginkgo Bioworks",
+        "industry": "Healthcare & Life Sciences",
+        "primary_use_case": "Applications & Collaboration",
+        "company_size": "Mid-Market",
+        "data_maturity": "Low",
+        "current_metrics": {
+            "total_data_tb": 2973,
+            "dedicated_compute_nodes": 68,
+            "data_team_fte_count": 7.4
+        },
+        "current_annual_costs": {
+            "storage": 891821.68,
+            "compute": 655809.92,
+            "labor": 1179550.46,
+            "licensing": 201699.27,
+            "total": 2928881.34
+        },
+        "value_discovery_notes": "The Healthcare & Life Sciences team at Ginkgo Bioworks is actively modernizing their data architecture to support advanced Applications & Collaboration workloads. They are currently struggling with significant data silos, slow query performance on legacy infrastructure, and high administrative overhead that prevents them from scaling efficiently. \n\nRelevant Case Study: Ginkgo Bioworks (https://www.snowflake.com/en/customers/all-customers/case-study/ginkgo-bioworks/) \nHighly Specific Pertinent Information: 'Discover how Ginkgo Bioworks enhances biology engineering with Snowflake's real-time data, boosting experiment success and scalability.'"
+    },
+    {
+        "customer_name": "Pfizer",
+        "industry": "Healthcare & Life Sciences",
+        "primary_use_case": "Data Engineering",
+        "company_size": "Large Enterprise",
+        "data_maturity": "Low",
+        "current_metrics": {
+            "total_data_tb": 29287,
+            "dedicated_compute_nodes": 1050,
+            "data_team_fte_count": 117.0
+        },
+        "current_annual_costs": {
+            "storage": 8786231.13,
+            "compute": 10076330.38,
+            "labor": 18712100.72,
+            "licensing": 1417378.29,
+            "total": 38992040.52
+        },
+        "value_discovery_notes": "The Healthcare & Life Sciences team at Pfizer is actively modernizing their data architecture to support advanced Data Engineering workloads. They are currently struggling with significant data silos, slow query performance on legacy infrastructure, and high administrative overhead that prevents them from scaling efficiently. \n\nRelevant Case Study: Pfizer (https://www.snowflake.com/en/customers/all-customers/case-study/pfizer/) \nHighly Specific Pertinent Information: 'Pharma giant Pfizer accelerates data processing by 4x, reduces total cost of ownership by 57%, and achieves 'One Pfizer' vision by migrating to Snowflake.'"
+    },
+    {
+        "customer_name": "Curative",
+        "industry": "Healthcare & Life Sciences",
+        "primary_use_case": "Applications & Collaboration",
+        "company_size": "Mid-Market",
+        "data_maturity": "Low",
+        "current_metrics": {
+            "total_data_tb": 3193,
+            "dedicated_compute_nodes": 66,
+            "data_team_fte_count": 9.9
+        },
+        "current_annual_costs": {
+            "storage": 957793.53,
+            "compute": 629674.78,
+            "labor": 1580489.31,
+            "licensing": 217422.21,
+            "total": 3385379.83
+        },
+        "value_discovery_notes": "The Healthcare & Life Sciences team at Curative is actively modernizing their data architecture to support advanced Applications & Collaboration workloads. They are currently struggling with significant data silos, slow query performance on legacy infrastructure, and high administrative overhead that prevents them from scaling efficiently. \n\nRelevant Case Study: Curative (https://www.snowflake.com/en/customers/all-customers/case-study/curative/) \nHighly Specific Pertinent Information: 'Explore how Curative, achieved advanced risk reporting in healthcare using Snowflake's data lake, fostering collaboration, and enhancing security posture.'"
+    },
+    {
+        "customer_name": "o3sigma",
+        "industry": "Manufacturing & Industrial",
+        "primary_use_case": "Applications & Collaboration",
+        "company_size": "Mid-Market",
+        "data_maturity": "Low",
+        "current_metrics": {
+            "total_data_tb": 1590,
+            "dedicated_compute_nodes": 30,
+            "data_team_fte_count": 10.6
+        },
+        "current_annual_costs": {
+            "storage": 477119.84,
+            "compute": 287541.49,
+            "labor": 1697060.31,
+            "licensing": 199698.61,
+            "total": 2661420.25
+        },
+        "value_discovery_notes": "The Manufacturing & Industrial team at o3sigma is actively modernizing their data architecture to support advanced Applications & Collaboration workloads. They are currently struggling with significant data silos, slow query performance on legacy infrastructure, and high administrative overhead that prevents them from scaling efficiently. \n\nRelevant Case Study: o3sigma (https://www.snowflake.com/en/customers/all-customers/case-study/o3sigma/) \nHighly Specific Pertinent Information: 'By partnering with Snowflake, O3sigma helps manufacturers maximize efficiency, cut costs and generate tens of thousands in new revenue with its composite AI models'"
+    },
+    {
+        "customer_name": "Toyota Motor",
+        "industry": "Manufacturing & Industrial",
+        "primary_use_case": "Analytics",
+        "company_size": "Large Enterprise",
+        "data_maturity": "Low",
+        "current_metrics": {
+            "total_data_tb": 33541,
+            "dedicated_compute_nodes": 401,
+            "data_team_fte_count": 105.8
+        },
+        "current_annual_costs": {
+            "storage": 10062307.31,
+            "compute": 3849048.7,
+            "labor": 16923507.19,
+            "licensing": 2195270.38,
+            "total": 33030133.58
+        },
+        "value_discovery_notes": "The Manufacturing & Industrial team at Toyota Motor is actively modernizing their data architecture to support advanced Analytics workloads. They are currently struggling with significant data silos, slow query performance on legacy infrastructure, and high administrative overhead that prevents them from scaling efficiently. \n\nRelevant Case Study: Toyota Motor (https://www.snowflake.com/en/customers/video/toyota-motor-europe/)"
+    },
+    {
+        "customer_name": "BMW Group",
+        "industry": "Manufacturing & Industrial",
+        "primary_use_case": "AI",
+        "company_size": "Large Enterprise",
+        "data_maturity": "Medium",
+        "current_metrics": {
+            "total_data_tb": 25194,
+            "dedicated_compute_nodes": 301,
+            "data_team_fte_count": 39.6
+        },
+        "current_annual_costs": {
+            "storage": 7558349.95,
+            "compute": 2886983.1,
+            "labor": 6338633.82,
+            "licensing": 1591816.87,
+            "total": 18375783.75
+        },
+        "value_discovery_notes": "The Manufacturing & Industrial team at BMW Group is actively modernizing their data architecture to support advanced AI workloads. They have begun transitioning to the cloud but are dealing with fragmented data environments, unpredictable compute costs, and performance bottlenecks during peak business hours. \n\nRelevant Case Study: BMW Group (https://www.snowflake.com/en/customers/all-customers/case-study/bmw-group/) \nHighly Specific Pertinent Information: 'Snowflake seamlessly integrates into BMW\u2019s Cloud Data Hub to support other tools and processes'"
+    },
+    {
+        "customer_name": "City of Tacoma",
+        "industry": "Public Sector",
+        "primary_use_case": "Data Engineering",
+        "company_size": "Enterprise",
+        "data_maturity": "Medium",
+        "current_metrics": {
+            "total_data_tb": 4576,
+            "dedicated_compute_nodes": 146,
+            "data_team_fte_count": 24.5
+        },
+        "current_annual_costs": {
+            "storage": 1372688.42,
+            "compute": 1400564.88,
+            "labor": 3919381.74,
+            "licensing": 660435.31,
+            "total": 7353070.35
+        },
+        "value_discovery_notes": "The Public Sector team at City of Tacoma is actively modernizing their data architecture to support advanced Data Engineering workloads. They have begun transitioning to the cloud but are dealing with fragmented data environments, unpredictable compute costs, and performance bottlenecks during peak business hours. \n\nRelevant Case Study: City of Tacoma (https://www.snowflake.com/en/customers/video/city-of-tacoma/)"
+    },
+    {
+        "customer_name": "Imperial College Healthcare NHS Trust",
+        "industry": "Public Sector",
+        "primary_use_case": "Data Engineering",
+        "company_size": "Large Enterprise",
+        "data_maturity": "Medium",
+        "current_metrics": {
+            "total_data_tb": 25423,
+            "dedicated_compute_nodes": 329,
+            "data_team_fte_count": 69.5
+        },
+        "current_annual_costs": {
+            "storage": 7626809.65,
+            "compute": 3158615.54,
+            "labor": 11125870.21,
+            "licensing": 1977972.23,
+            "total": 23889267.64
+        },
+        "value_discovery_notes": "The Public Sector team at Imperial College Healthcare NHS Trust is actively modernizing their data architecture to support advanced Data Engineering workloads. They have begun transitioning to the cloud but are dealing with fragmented data environments, unpredictable compute costs, and performance bottlenecks during peak business hours. \n\nRelevant Case Study: Imperial College Healthcare NHS Trust (https://www.snowflake.com/en/customers/video/imperial-college-healthcare-nhs-trust/)"
+    },
+    {
+        "customer_name": "City and County of San Francisco",
+        "industry": "Public Sector",
+        "primary_use_case": "Applications & Collaboration",
+        "company_size": "Mid-Market",
+        "data_maturity": "High",
+        "current_metrics": {
+            "total_data_tb": 1623,
+            "dedicated_compute_nodes": 20,
+            "data_team_fte_count": 3.2
+        },
+        "current_annual_costs": {
+            "storage": 486964.92,
+            "compute": 188285.68,
+            "labor": 512235.96,
+            "licensing": 231669.1,
+            "total": 1419155.66
+        },
+        "value_discovery_notes": "The Public Sector team at City and County of San Francisco is actively modernizing their data architecture to support advanced Applications & Collaboration workloads. While their data practice is mature, they need a more elastic, unified platform to securely share governed data across the enterprise and accelerate time-to-market for complex initiatives. \n\nRelevant Case Study: City and County of San Francisco (https://www.snowflake.com/en/customers/case-study/city-and-county-of-san-francisco/)"
+    },
+    {
+        "customer_name": "Huel",
+        "industry": "Retail & Consumer Goods",
+        "primary_use_case": "AI",
+        "company_size": "Enterprise",
+        "data_maturity": "Medium",
+        "current_metrics": {
+            "total_data_tb": 9156,
+            "dedicated_compute_nodes": 350,
+            "data_team_fte_count": 23.7
+        },
+        "current_annual_costs": {
+            "storage": 2746713.02,
+            "compute": 3356396.01,
+            "labor": 3799272.81,
+            "licensing": 552539.3,
+            "total": 10454921.14
+        },
+        "value_discovery_notes": "The Retail & Consumer Goods team at Huel is actively modernizing their data architecture to support advanced AI workloads. They have begun transitioning to the cloud but are dealing with fragmented data environments, unpredictable compute costs, and performance bottlenecks during peak business hours. \n\nRelevant Case Study: Huel (https://www.snowflake.com/en/customers/all-customers/case-study/huel/) \nHighly Specific Pertinent Information: 'Snowflake helps the nutritional product company gain decision-defining insights across all levels of the business'"
+    },
+    {
+        "customer_name": "Simba",
+        "industry": "Retail & Consumer Goods",
+        "primary_use_case": "Data Engineering",
+        "company_size": "Enterprise",
+        "data_maturity": "Low",
+        "current_metrics": {
+            "total_data_tb": 9778,
+            "dedicated_compute_nodes": 454,
+            "data_team_fte_count": 32.4
+        },
+        "current_annual_costs": {
+            "storage": 2933301.93,
+            "compute": 4357171.44,
+            "labor": 5191997.99,
+            "licensing": 357116.23,
+            "total": 12839587.59
+        },
+        "value_discovery_notes": "The Retail & Consumer Goods team at Simba is actively modernizing their data architecture to support advanced Data Engineering workloads. They are currently struggling with significant data silos, slow query performance on legacy infrastructure, and high administrative overhead that prevents them from scaling efficiently. \n\nRelevant Case Study: Simba (https://www.snowflake.com/en/customers/all-customers/case-study/simba-sleep/) \nHighly Specific Pertinent Information: 'Learn how Simba boosts performance, accelerates reporting and enhances security with a centralized data lake'"
+    },
+    {
+        "customer_name": "Fanatics",
+        "industry": "Retail & Consumer Goods",
+        "primary_use_case": "Data Engineering",
+        "company_size": "Enterprise",
+        "data_maturity": "Medium",
+        "current_metrics": {
+            "total_data_tb": 7741,
+            "dedicated_compute_nodes": 342,
+            "data_team_fte_count": 22.9
+        },
+        "current_annual_costs": {
+            "storage": 2322344.78,
+            "compute": 3282828.77,
+            "labor": 3668626.22,
+            "licensing": 421446.14,
+            "total": 9695245.91
+        },
+        "value_discovery_notes": "The Retail & Consumer Goods team at Fanatics is actively modernizing their data architecture to support advanced Data Engineering workloads. They have begun transitioning to the cloud but are dealing with fragmented data environments, unpredictable compute costs, and performance bottlenecks during peak business hours. \n\nRelevant Case Study: Fanatics (https://www.snowflake.com/en/customers/video/fanatics/)"
+    },
+    {
+        "customer_name": "Snyk",
+        "industry": "Technology",
+        "primary_use_case": "Analytics",
+        "company_size": "Large Enterprise",
+        "data_maturity": "High",
+        "current_metrics": {
+            "total_data_tb": 22353,
+            "dedicated_compute_nodes": 619,
+            "data_team_fte_count": 29.1
+        },
+        "current_annual_costs": {
+            "storage": 6706033.92,
+            "compute": 5945196.49,
+            "labor": 4658179.63,
+            "licensing": 1931778.09,
+            "total": 19241188.13
+        },
+        "value_discovery_notes": "The Technology team at Snyk is actively modernizing their data architecture to support advanced Analytics workloads. While their data practice is mature, they need a more elastic, unified platform to securely share governed data across the enterprise and accelerate time-to-market for complex initiatives. \n\nRelevant Case Study: Snyk (https://www.snowflake.com/en/customers/all-customers/case-study/snyk/) \nHighly Specific Pertinent Information: 'From scattered info to actionable, accessible insights: How Snyk quickly transformed internal workflows to save hours of productivity.'"
+    },
+    {
+        "customer_name": "Zendesk",
+        "industry": "Technology",
+        "primary_use_case": "Analytics",
+        "company_size": "Mid-Market",
+        "data_maturity": "High",
+        "current_metrics": {
+            "total_data_tb": 2174,
+            "dedicated_compute_nodes": 49,
+            "data_team_fte_count": 2.6
+        },
+        "current_annual_costs": {
+            "storage": 652338.13,
+            "compute": 466214.56,
+            "labor": 413710.97,
+            "licensing": 277671.97,
+            "total": 1809935.62
+        },
+        "value_discovery_notes": "The Technology team at Zendesk is actively modernizing their data architecture to support advanced Analytics workloads. While their data practice is mature, they need a more elastic, unified platform to securely share governed data across the enterprise and accelerate time-to-market for complex initiatives. \n\nRelevant Case Study: Zendesk (https://www.snowflake.com/en/customers/video/zendesk/)"
+    },
+    {
+        "customer_name": "aiOla",
+        "industry": "Technology",
+        "primary_use_case": "Applications & Collaboration",
+        "company_size": "Large Enterprise",
+        "data_maturity": "Low",
+        "current_metrics": {
+            "total_data_tb": 28590,
+            "dedicated_compute_nodes": 717,
+            "data_team_fte_count": 53.9
+        },
+        "current_annual_costs": {
+            "storage": 8576956.87,
+            "compute": 6879206.84,
+            "labor": 8618092.26,
+            "licensing": 2105076.6,
+            "total": 26179332.56
+        },
+        "value_discovery_notes": "The Technology team at aiOla is actively modernizing their data architecture to support advanced Applications & Collaboration workloads. They are currently struggling with significant data silos, slow query performance on legacy infrastructure, and high administrative overhead that prevents them from scaling efficiently. \n\nRelevant Case Study: aiOla (https://www.snowflake.com/en/customers/all-customers/case-study/aiola/) \nHighly Specific Pertinent Information: 'See how aiOla uses Snowflake to power its voice-to-data technology \u2014 and saves thousands of dollars in the process.'"
+    },
+    {
+        "customer_name": "Zoom",
+        "industry": "Telecom",
+        "primary_use_case": "Data Engineering",
+        "company_size": "Mid-Market",
+        "data_maturity": "Low",
+        "current_metrics": {
+            "total_data_tb": 1497,
+            "dedicated_compute_nodes": 65,
+            "data_team_fte_count": 10.3
+        },
+        "current_annual_costs": {
+            "storage": 449021.69,
+            "compute": 621591.97,
+            "labor": 1653533.18,
+            "licensing": 278452.45,
+            "total": 3002599.29
+        },
+        "value_discovery_notes": "The Telecom team at Zoom is actively modernizing their data architecture to support advanced Data Engineering workloads. They are currently struggling with significant data silos, slow query performance on legacy infrastructure, and high administrative overhead that prevents them from scaling efficiently. \n\nRelevant Case Study: Zoom (https://www.snowflake.com/en/customers/video/zoom/)"
+    },
+    {
+        "customer_name": "AT&T",
+        "industry": "Telecom",
+        "primary_use_case": "Data Engineering",
+        "company_size": "Large Enterprise",
+        "data_maturity": "High",
+        "current_metrics": {
+            "total_data_tb": 14099,
+            "dedicated_compute_nodes": 767,
+            "data_team_fte_count": 56.1
+        },
+        "current_annual_costs": {
+            "storage": 4229678.95,
+            "compute": 7358499.43,
+            "labor": 8973063.67,
+            "licensing": 1474034.32,
+            "total": 22035276.38
+        },
+        "value_discovery_notes": "The Telecom team at AT&T is actively modernizing their data architecture to support advanced Data Engineering workloads. While their data practice is mature, they need a more elastic, unified platform to securely share governed data across the enterprise and accelerate time-to-market for complex initiatives. \n\nRelevant Case Study: AT&T (https://www.snowflake.com/en/customers/video/att/)"
+    },
+    {
+        "customer_name": "Dialog",
+        "industry": "Telecom",
+        "primary_use_case": "Data Engineering",
+        "company_size": "Mid-Market",
+        "data_maturity": "High",
+        "current_metrics": {
+            "total_data_tb": 1801,
+            "dedicated_compute_nodes": 78,
+            "data_team_fte_count": 6.2
+        },
+        "current_annual_costs": {
+            "storage": 540333.95,
+            "compute": 748134.97,
+            "labor": 994648.02,
+            "licensing": 149457.77,
+            "total": 2432574.71
+        },
+        "value_discovery_notes": "The Telecom team at Dialog is actively modernizing their data architecture to support advanced Data Engineering workloads. While their data practice is mature, they need a more elastic, unified platform to securely share governed data across the enterprise and accelerate time-to-market for complex initiatives. \n\nRelevant Case Study: Dialog (https://www.snowflake.com/en/customers/video/dialog/)"
+    }
+]

@@ -1,0 +1,6 @@
+{
+    "case_study": "BlackRock chose Snowflake to power the Aladdin Data Cloud, enabling institutional clients to combine Aladdin portfolio data with their own internal data securely without copying files.",
+    "finserv": "Boost your data and AI strategy to achieve compliance goals, improve risk management, power customer 360, and create a single source of truth for insurance data.",
+    "aladdin": "Aladdin Data Cloud brings the power of Snowflake to BlackRock's risk architecture. Clients can query massive risk models and attribute performance across petabytes of market data instantaneously.",
+    "summit24": "At Summit24, BlackRock presented on using Snowflake's elasticity to optimize ML and AI cloud consumption costs, reducing idle compute time during peak trading hour loads."
+}
