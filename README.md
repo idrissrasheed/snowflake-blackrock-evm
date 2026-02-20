@@ -1,6 +1,6 @@
 # Snowflake EVM Sales Agent: BlackRock Edition
 
-This is a hyper-customized Value Engineering dashboard tailored exclusively for BlackRock's Aladdin Data Cloud expansion. It converts raw legacy IT costs into deterministic Snowflake ROI, TCO, and NPV metrics based on BlackRock's actual SEC financial footprint and public Snowflake pricing.
+This is a customized value engineering dashboard tailored exclusively for BlackRock's Aladdin Data Cloud expansion. It converts raw legacy IT costs into deterministic Snowflake ROI, TCO, and NPV metrics based on BlackRock's actual SEC financial footprint and public Snowflake pricing.
 
 ## Architecture
 
