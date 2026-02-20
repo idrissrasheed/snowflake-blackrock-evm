@@ -1,5 +1,6 @@
 import json
 import re
+import os
 
 # In a real deployed app, this module would invoke the Snowflake Cortex AI or OpenAI.
 # For demo purposes, we are simulating the Language Model's extraction logic deterministicly.
@@ -111,7 +112,8 @@ def run_workshop_summarizer(customer_archetype_profile):
 if __name__ == "__main__":
     # Test the agent parser with one of the synthetic customers
     try:
-        with open("data/synthetic_customers.json", "r") as f:
+        data_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "synthetic_customers.json")
+        with open(data_path, "r") as f:
             customers = json.load(f)
             
         test_customer = customers[0] # Retail Marketing

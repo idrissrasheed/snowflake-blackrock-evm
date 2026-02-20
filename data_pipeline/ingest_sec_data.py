@@ -2,7 +2,7 @@ import os
 from sec_edgar_downloader import Downloader
 
 # SEC requires a company name and email address to form the User-Agent string
-dl = Downloader("Risk Analysis Agent", "idris@example.com", "./sec_data")
+dl = Downloader("Risk Analysis Agent", "idris@example.com", os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "sec_data"))
 
 def download_filings(ticker="BLK", years=[2020, 2021, 2022, 2023, 2024, 2025]):
     print(f"Downloading SEC filings for {ticker}...")

@@ -82,7 +82,7 @@ def generate_blackrock_facts():
 if __name__ == "__main__":
     extracted_facts = generate_blackrock_facts()
     
-    output_path = os.path.join(os.path.dirname(__file__), "data", "scraped_blk_facts.json")
+    output_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "scraped_blk_facts.json")
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     
     with open(output_path, "w") as f:

@@ -18,7 +18,7 @@ def normalize_cost(infra_cost, licensing_cost, labor_cost):
 def _load_extracted_benchmarks():
     try:
         import os, json
-        benchmarks_path = os.path.join(os.path.dirname(__file__), "data", "extracted_benchmarks.json")
+        benchmarks_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "extracted_benchmarks.json")
         with open(benchmarks_path, "r") as f:
             return json.load(f)
     except Exception:

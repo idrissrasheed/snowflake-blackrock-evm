@@ -8,7 +8,7 @@ def extract_financial_levers():
     Scans the downloaded SEC filings for BlackRock (BLK) to extract
     realistic benchmark percentages for the EVM Engine.
     """
-    base_dir = os.path.join(os.path.dirname(__file__), "sec_data", "sec-edgar-filings", "BLK", "10-K")
+    base_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "sec_data", "sec-edgar-filings", "BLK", "10-K")
     
     if not os.path.exists(base_dir):
         print("SEC data not found. Run ingest_sec_data.py first.")
@@ -57,7 +57,7 @@ def extract_financial_levers():
         extracted_data["implied_compute_efficiency_gain"] = 0.40
         
     # Save the extracted benchmarks so the EVM engine can use them
-    output_file = os.path.join(os.path.dirname(__file__), "data", "extracted_benchmarks.json")
+    output_file = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "extracted_benchmarks.json")
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
     with open(output_file, "w") as f:
         json.dump(extracted_data, f, indent=4)
