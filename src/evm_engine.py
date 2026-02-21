@@ -56,13 +56,14 @@ def estimate_productivity_lift(data_team_headcount, fully_loaded_salary, migrati
 
 # --- Core Financial Metrics (ROI, NPV, Payback) ---
 
-def calculate_roi(total_benefits, total_costs):
+def calculate_roi(total_benefits, implementation_investment):
     """
-    ROI = (Benefits - Costs) / Costs
+    Software Value Engineering ROI calculation. 
+    ROI = (Total Accrued Benefits - Initial Transformation Investment) / Initial Transformation Investment
     """
-    if total_costs == 0:
-        return 0.0
-    return ((total_benefits - total_costs) / total_costs) * 100
+    if implementation_investment <= 0:
+        return 0.0 # Prevent division by zero if there's no setup cost
+    return ((total_benefits - implementation_investment) / implementation_investment) * 100
 
 def calculate_npv(cash_flows, discount_rate=0.08):
     """
@@ -127,7 +128,7 @@ def run_evm_assessment(
     cash_flows = [-implementation_cost] + [total_annual_savings] * analysis_years
     
     npv = calculate_npv(cash_flows, discount_rate)
-    roi = calculate_roi(total_annual_savings * analysis_years, proposed_3yr_tco)
+    roi = calculate_roi(total_annual_savings * analysis_years, implementation_cost)
     payback_period = calculate_payback_period(implementation_cost, total_annual_savings)
 
     # 4. Map to Snowflake Value Buckets with Value Engineering Terminology

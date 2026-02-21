@@ -36,41 +36,63 @@ def extract_pain_points(transcript):
         
     return pain_points
 
-def map_pain_points_to_drivers(pain_points):
+def generate_value_driver_map(pain_points):
     """
-    Maps the qualitative pain points into the official Snowflake Value Buckets.
+    Maps the qualitative pain points into a formal, tabular Value Driver Map 
+    used in elite Snowflake VE presentations.
+    Columns: [Pain Point, Value Lever, Financial Driver, Metric Impact]
     """
-    value_drivers = {
-        "Cost Reduction": [],
-        "Revenue Enablement": [],
-        "Risk Reduction": []
-    }
+    driver_map = []
     
     for pp in pain_points:
         text = pp.lower()
-        # Cost mapping
-        if any(word in text for word in ["cost", "expensive", "overhead", "admin", "maintenance", "manage"]):
-            value_drivers["Cost Reduction"].append(
-                f"Consolidate infrastructure & eliminate maintenance overhead to address: '{pp}'"
-            )
-        # Revenue mapping
-        elif any(word in text for word in ["slow", "insight", "silo", "bottleneck", "scale", "growth", "time", "delay", "ai", "model"]):
-            value_drivers["Revenue Enablement"].append(
-                f"Accelerate time-to-market and AI development by removing concurrency limits to address: '{pp}'"
-            )
-        # Risk mapping
-        elif any(word in text for word in ["govern", "compliance", "friction", "secure", "protect", "risk", "trust"]):
-            value_drivers["Risk Reduction"].append(
-                f"Implement single governed copy of data to address: '{pp}'"
-            )
-        # Fallback if no specific keywords hit to prevent empty UI
-        else:
-            value_drivers["Revenue Enablement"].append(
-                f"Enable data-driven business agility to address: '{pp}'"
-            )
+        
+        # Performance/Batching -> Compute Elasticity
+        if any(word in text for word in ["slow", "time", "delay", "batch"]):
+            driver_map.append({
+                "Pain Point": pp,
+                "Value Lever": "Elastic Compute (Scale up/down instantly)",
+                "Financial Driver": "Revenue Enablement",
+                "Metric Impact": "Faster simulations & Quicker time-to-market"
+            })
             
-    # Clean up empty buckets for the UI
-    return {k: v for k, v in value_drivers.items() if v}
+        # Cost/Infra/Maintenance -> Cost Reduction
+        elif any(word in text for word in ["cost", "expensive", "overhead", "admin", "maintenance", "manage"]):
+            driver_map.append({
+                "Pain Point": pp,
+                "Value Lever": "Managed SaaS & Micro-partitioning",
+                "Financial Driver": "Cost Reduction",
+                "Metric Impact": "Lower storage footprints & Zero tuning labor"
+            })
+            
+        # Sharing/Silos/Risk -> Risk Reduction
+        elif any(word in text for word in ["govern", "compliance", "silo", "secure", "protect", "risk", "share", "collaboration"]):
+            driver_map.append({
+                "Pain Point": pp,
+                "Value Lever": "Secure Data Sharing (No copy)",
+                "Financial Driver": "Risk Reduction",
+                "Metric Impact": "Eliminated FTP ingestion overhead & High governance"
+            })
+            
+        # ML/AI/Scaling -> Revenue Enablement
+        elif any(word in text for word in ["ai", "model", "scale", "growth", "volume"]):
+             driver_map.append({
+                "Pain Point": pp,
+                "Value Lever": "Snowpark / Unlimited Concurrency",
+                "Financial Driver": "Revenue Enablement",
+                "Metric Impact": "Unblocked quant teams & Higher model volume"
+            })
+            
+        else:
+            # Fallback
+            driver_map.append({
+                "Pain Point": pp,
+                "Value Lever": "Data Cloud Consolidation",
+                "Financial Driver": "Cost Reduction",
+                "Metric Impact": "Consolidated tool sprawl"
+            })
+            
+    return driver_map
 
 def generate_followup_questions(pain_points, primary_use_case):
     """
@@ -108,7 +130,7 @@ def run_workshop_summarizer():
     use_case = "Aladdin Data Cloud"
     
     pain_points = extract_pain_points(transcript)
-    value_drivers = map_pain_points_to_drivers(pain_points)
+    value_drivers = generate_value_driver_map(pain_points)
     next_questions = generate_followup_questions(pain_points, use_case)
     
     return {

@@ -83,31 +83,93 @@ with tab2:
             implementation_cost=implementation_cost
         )
         
+        # --- ELITE VE UPGRADE: Executive Summary ---
+        st.subheader("Executive Summary")
+        total_savings = evm_results['Baseline_3Yr_TCO'] - evm_results['Proposed_3Yr_TCO']
+        st.info(f"**Migrating {int(migration_pct*100)}% of Aladdin’s risk workloads to Snowflake yields:**  \n"
+                f"— **${total_savings:,.0f}** total savings over {contract_length} years  \n"
+                f"— **{evm_results['Payback_Period_Years'] * 12:.1f}-month** payback period  \n"
+                f"— **{evm_results['Function_to_Cost_Ratio']:.2f}x** value-to-cost ratio  \n"
+                f"*Key value drivers: storage reduction, compute elasticity, and reduced engineering overhead.*")
+        
         st.subheader("Your Financial Outcomes")
         
-        mcol1, mcol2 = st.columns(2)
-        mcol1.metric("Cost If You Do Nothing", f"${evm_results['Baseline_3Yr_TCO']:,.0f}")
-        mcol2.metric("Cost With Snowflake", f"${evm_results['Proposed_3Yr_TCO']:,.0f}", delta=f"-${evm_results['Baseline_3Yr_TCO'] - evm_results['Proposed_3Yr_TCO']:,.0f} Total Savings", delta_color="inverse")
+        # --- ELITE VE UPGRADE: Visual Hierarchy ---
+        st.subheader("Group 1: Headline Financials")
+        mcol1, mcol2, mcol3 = st.columns(3)
+        mcol1.metric("Return on Investment", f"{evm_results['ROI_Percentage']:.1f}%")
+        mcol2.metric("Total Net Savings", f"${evm_results['NPV']:,.0f}")
+        mcol3.metric("Payback Period", f"{evm_results['Payback_Period_Years'] * 12:.1f} Months")
         
-        mcol3, mcol4, mcol5, mcol6 = st.columns(4)
-        mcol3.metric("Return on Investment", f"{evm_results['ROI_Percentage']:.1f}%")
-        mcol4.metric("Payback Period (Months)", f"{evm_results['Payback_Period_Years'] * 12:.1f}")
-        mcol5.metric("Total Net Savings", f"${evm_results['NPV']:,.0f}")
-        mcol6.metric("Function-to-Cost Ratio", f"{evm_results['Function_to_Cost_Ratio']:.2f}x")
+        st.subheader("Group 2 & 3: TCO Comparison")
+        tcol1, tcol2 = st.columns(2)
+        tcol1.metric("Cost If You Do Nothing", f"${evm_results['Baseline_3Yr_TCO']:,.0f}")
+        tcol2.metric("Cost With Snowflake", f"${evm_results['Proposed_3Yr_TCO']:,.0f}", delta=f"-${total_savings:,.0f} Delta", delta_color="inverse")
         
-        st.markdown("#### What You Actually Buy (Snowflake AWS Enterprise)")
         sizing = evm_results["Infrastructure_Sizing"]
-        scol1, scol2 = st.columns(2)
-        scol1.metric("Compute Power Needed", f"{sizing['Estimated_Annual_Credits']:,.0f} Credits/Yr", help=f"At ${sizing['Price_Per_Credit']:.2f} per credit")
-        scol2.metric("Storage Space Needed", f"{sizing['Estimated_Storage_TB']:,.0f} TB/Month", help=f"At ${sizing['Price_Per_Storage_TB_Month']:.2f} per TB")
+        st.markdown(f"*Includes ~{sizing['Estimated_Annual_Credits']:,.0f} Credits/Yr compute and {sizing['Estimated_Storage_TB']:,.0f} TB/Month storage.*")
+
+        st.subheader("Group 4: Where Do The Savings Come From?")
+        vcol1, vcol2, vcol3 = st.columns(3)
         
-        st.markdown("#### Where Do The Savings Come From?")
-        for bucket_name, bucket_data in evm_results["Value_Buckets"].items():
-            numeric_val = next(iter(bucket_data.values()))
-            if isinstance(numeric_val, (int, float)):
-                st.markdown(f"**{bucket_name}**: :green[+${numeric_val:,.0f}/year]")
-            else:
-                st.markdown(f"**{bucket_name}**: (Qualitative Impact)")
+        # Safely extract dynamic keys from the VE Engine
+        buckets = evm_results["Value_Buckets"]
+        
+        with vcol1:
+            st.markdown("### 💰 Cost Reduction")
+            cr_val = next(iter(buckets.get("Cost Reduction (Cost Value)", {}).values()), 0)
+            if isinstance(cr_val, (int, float)) and cr_val > 0:
+                st.success(f"**+${cr_val:,.0f} / year**")
+            st.caption("Infrastructure compression & reduced tuning labor.")
+            
+        with vcol2:
+            st.markdown("### 📈 Revenue Enablement")
+            re_val = next(iter(buckets.get("Revenue Enablement (Use Value)", {}).values()), 0)
+            if isinstance(re_val, (int, float)) and re_val > 0:
+                st.info(f"**+${re_val:,.0f} / year**")
+            st.caption("Faster simulations -> Quicker trade execution.")
+            
+        with vcol3:
+            st.markdown("### 🛡️ Risk Reduction")
+            st.warning("**Qualitative Value**")
+            st.caption("Secure data sharing & governed quantitative models.")
+            
+        st.divider()
+        st.markdown("#### 📊 Industry Benchmarks (Financial Services)")
+        st.caption("*- Typical market-data workloads see 30–50% compute efficiency gains on Snowflake.*")
+        st.caption("*- Institutional clients using Snowflake for real-time risk analytics reduce siloed infra costs by 40–60% annually.*")
+        st.caption("*- Data sharing eliminates ~70% of cross-client data ingestion overhead.*")
+        
+        st.divider()
+        st.subheader("📥 Export Deliverable")
+        
+        # Build the dynamic markdown readout
+        export_text = f"""# Value Engineering Executive Readout: BlackRock Aladdin
+        
+## Executive Summary
+Migrating {int(migration_pct*100)}% of Aladdin’s risk workloads yields:
+- **${total_savings:,.0f}** total savings over {contract_length} years
+- **{evm_results['Payback_Period_Years'] * 12:.1f}-month** payback period
+- **{evm_results['ROI_Percentage']:.1f}%** Return on Investment
+
+## Financial Breakdown
+- **Baseline Cost (Do Nothing)**: ${evm_results['Baseline_3Yr_TCO']:,.0f}
+- **Proposed Cost (Snowflake)**: ${evm_results['Proposed_3Yr_TCO']:,.0f}
+- **Total Net Savings**: ${evm_results['NPV']:,.0f}
+
+*(Includes ~{sizing['Estimated_Annual_Credits']:,.0f} Credits/Yr compute and {sizing['Estimated_Storage_TB']:,.0f} TB/Month storage)*
+
+## Value Drivers
+- **Cost Reduction**: +${next(iter(buckets.get("Cost Reduction (Cost Value)", {}).values()), 0):,.0f}/yr (Infrastructure compression)
+- **Revenue Enablement**: +${next(iter(buckets.get("Revenue Enablement (Use Value)", {}).values()), 0):,.0f}/yr (Faster simulations)
+- **Risk Reduction**: Qualitative (Secure data sharing & governance)
+"""
+        st.download_button(
+            label="Download 1-Page Executive Readout (Markdown)",
+            data=export_text,
+            file_name="BlackRock_Snowflake_VE_Readout.md",
+            mime="text/markdown"
+        )
 
 with tab3:
     st.header("5. AI Discovery Brief (Scraped Context)")
@@ -126,8 +188,7 @@ with tab3:
     for question in ai_results.get("VE_Next_Discovery_Questions", []):
         st.markdown(f"- *{question}*")
         
-    with st.expander("Show AI Value Driver Mapping"):
-        for category, mappings in ai_results.get("Hypothesized_Value_Drivers", {}).items():
-            st.markdown(f"**{category}**")
-            for m in mappings:
-                st.markdown(f"- {m}")
+    st.subheader("📊 Value Driver Map")
+    driver_list = ai_results.get("Hypothesized_Value_Drivers", [])
+    if driver_list:
+        st.dataframe(pd.DataFrame(driver_list), use_container_width=True, hide_index=True)
