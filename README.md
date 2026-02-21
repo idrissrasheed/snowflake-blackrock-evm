@@ -10,6 +10,30 @@ This project strictly follows the Value Engineering 4-Step Pitch Methodology:
 3. **Snowflake Value Hypothesis**
 4. **Financial Model & Credit Sizing**
 
+### System Diagram
+```mermaid
+graph TD
+    subgraph Data Pipeline
+        A[ingest_sec_data.py<br>Downloads BLK 10-K] -->|SEC 10-K| B[extract_sec_data.py<br>Parses Benchmarks]
+        C[scrape_blackrock_urls.py<br>Scrapes URL Facts] -->|HTML/JSON| D[(scraped_blk_facts.json)]
+        B -->|Financial Baselines| E[(extracted_benchmarks.json)]
+    end
+
+    subgraph Application & Math Engine
+        F[evm_engine.py<br>TCO & ROI Calculators]
+        E --> F
+        G[agent.py<br>NLP & Value Driver Map]
+        D --> G
+    end
+
+    subgraph UI Presentation
+        H[app.py<br>Streamlit Dashboard]
+        F -->|NPV, ROI, Payback| H
+        G -->|Pain Points & AI Brief| H
+        H --> I((BlackRock Executive))
+    end
+```
+
 ## Core Components
 * `evm_engine.py`: The deterministic math model. It consumes BlackRock's legacy spend, applies compute/storage efficiency multipliers extracted dynamically from their $BLK SEC 10-K filings, and maps the savings linearly across 3 years to project ROI, NPV, Total Savings, Payback Period, and required Snowflake Credits (AWS Enterprise pricing).
 * `app.py`: The Streamlit-based interactive presentation. It visualizes the ROI calculations and explicit Value Drivers (Cost Reduction, Revenue Enablement, Risk Reduction).
