@@ -109,18 +109,21 @@ def run_evm_assessment(
     current_labor_cost = data_team_headcount * avg_salary
     baseline_annual_tco = normalize_cost(current_infra_cost, current_licensing_cost, current_labor_cost)
     
-    baseline_3yr_tco = baseline_annual_tco * analysis_years
+    baseline_lifecycle_tco = baseline_annual_tco * analysis_years
 
     # 2. To-Be Savings (Value Levers)
     compute_savings = estimate_compute_efficiency_gain(current_compute_cost, migration_factor)
     storage_savings = estimate_storage_savings(current_storage_cost, migration_factor)
     productivity_savings = estimate_productivity_lift(data_team_headcount, avg_salary, migration_factor)
     
-    total_annual_savings = compute_savings + storage_savings + productivity_savings
+    # Estimate quantifiable risk reduction (e.g. 5% reduction in compliance/audit overhead applied to licensing and storage)
+    risk_savings = (current_licensing_cost + current_storage_cost) * (migration_factor * 0.05)
+    
+    total_annual_savings = compute_savings + storage_savings + productivity_savings + risk_savings
 
     # "To-Be" Annual TCO
     proposed_annual_tco = baseline_annual_tco - total_annual_savings
-    proposed_3yr_tco = proposed_annual_tco * analysis_years + implementation_cost
+    proposed_lifecycle_tco = proposed_annual_tco * analysis_years + implementation_cost
 
     # 3. Formulate Cash Flows for NPV
     # Year 0: Negative cash flow (Implementation cost)
@@ -142,15 +145,15 @@ def run_evm_assessment(
             "Description": "Faster time-to-insight and reduced administrative overhead freeing up data engineers, drastically improving the functional 'Use Value' of the team."
         },
         "Risk Reduction (Esteem & Exchange Value)": {
-            "Reduced Technical Debt": "Qualitative - Migrating to a fully managed SaaS reduces patching and version upgrades.",
-            "Description": "Migration to a single governed copy of data limits compliance surface area, boosting 'Esteem Value' via trust, and 'Exchange Value' via easier data sharing."
+            "Compliance & Audit Savings": risk_savings,
+            "Description": "Quantifiable reduction in compliance overhead, audit labor, and reduced technical debt by migrating to a fully managed, single-governed SaaS."
         }
     }
     
     # Calculate Function-to-Cost Ratio
-    # Function = Total Benefits (Total Annual Savings over 3 years)
-    # Cost = Total Lifecycle Cost (Proposed 3Yr TCO)
-    function_to_cost_ratio = (total_annual_savings * analysis_years) / proposed_3yr_tco if proposed_3yr_tco > 0 else 0
+    # Function = Total Benefits (Total Annual Savings over lifecycle)
+    # Cost = Total Lifecycle Cost (Proposed Lifecycle TCO)
+    function_to_cost_ratio = (total_annual_savings * analysis_years) / proposed_lifecycle_tco if proposed_lifecycle_tco > 0 else 0
     
     # 5. Infrastructure Sizing (Actual Consumption Pricing)
     # Assuming standard AWS US East (N. Virginia) Capacity
@@ -170,9 +173,9 @@ def run_evm_assessment(
 
     return {
         "Baseline_Annual_TCO": baseline_annual_tco,
-        "Baseline_3Yr_TCO": baseline_3yr_tco,
+        "Baseline_Lifecycle_TCO": baseline_lifecycle_tco,
         "Proposed_Annual_TCO": proposed_annual_tco,
-        "Proposed_3Yr_TCO": proposed_3yr_tco,
+        "Proposed_Lifecycle_TCO": proposed_lifecycle_tco,
         "Infrastructure_Sizing": infrastructure_sizing,
         "Total_Annual_Savings": total_annual_savings,
         "NPV": npv,

@@ -35,8 +35,8 @@ graph TD
 ```
 
 ## Core Components
-* `evm_engine.py`: The deterministic math model. It consumes BlackRock's legacy spend, applies compute/storage efficiency multipliers extracted dynamically from their $BLK SEC 10-K filings, and maps the savings linearly across 3 years to project ROI, NPV, Total Savings, Payback Period, and required Snowflake Credits (AWS Enterprise pricing).
-* `app.py`: The Streamlit-based interactive presentation. It visualizes the ROI calculations and explicit Value Drivers (Cost Reduction, Revenue Enablement, Risk Reduction).
+* `evm_engine.py`: The deterministic math model. It consumes BlackRock's legacy spend, applies compute/storage efficiency multipliers extracted dynamically from their $BLK SEC 10-K filings, and maps the savings linearly across the dynamically specified contract lifecycle to project ROI, NPV, Total Savings, Payback Period, and required Snowflake Credits (AWS Enterprise pricing). It also factor in dynamic quantifiable Risk Reduction savings based on a percentage of legacy software and storage costs.
+* `app.py`: The Streamlit-based interactive presentation. It visualizes the ROI calculations, dynamically formatted payback periods, and explicit Value Drivers (Cost Reduction, Revenue Enablement, Risk Reduction).
 * `ingest_sec_data.py`: Downloads BlackRock (BLK) 10-K filings natively from the SEC Edgar database from 2020 (the year prior to Aladdin's Snowflake launch) through 2025.
 * `extract_sec_data.py`: A regex-based extraction tool that dynamically scours the 10-K filings to locate BlackRock's actual Operating Margin and Revenue Growth benchmarks to ground the EVM elasticity multipliers.
 * `scrape_blackrock_urls.py`: A bespoke web scraper that captures factual snippets from exactly 4 core BlackRock/Snowflake web addresses (including Summit24 ML optimizations).

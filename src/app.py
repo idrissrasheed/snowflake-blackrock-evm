@@ -85,10 +85,15 @@ with tab2:
         
         # --- ELITE VE UPGRADE: Executive Summary ---
         st.subheader("Executive Summary")
-        total_savings = evm_results['Baseline_3Yr_TCO'] - evm_results['Proposed_3Yr_TCO']
+        total_savings = evm_results['Baseline_Lifecycle_TCO'] - evm_results['Proposed_Lifecycle_TCO']
+        
+        payback_years = evm_results['Payback_Period_Years']
+        payback_str = f"{payback_years * 12:.1f}-month" if payback_years < 1 else f"{payback_years:.1f}-year"
+        payback_metric_str = f"{payback_years * 12:.1f} Months" if payback_years < 1 else f"{payback_years:.1f} Years"
+        
         st.info(f"**Migrating {int(migration_pct*100)}% of Aladdin’s risk workloads to Snowflake yields:**  \n"
                 f"— **${total_savings:,.0f}** total savings over {contract_length} years  \n"
-                f"— **{evm_results['Payback_Period_Years'] * 12:.1f}-month** payback period  \n"
+                f"— **{payback_str}** payback period  \n"
                 f"— **{evm_results['Function_to_Cost_Ratio']:.2f}x** value-to-cost ratio  \n"
                 f"*Key value drivers: storage reduction, compute elasticity, and reduced engineering overhead.*")
         
@@ -99,12 +104,12 @@ with tab2:
         mcol1, mcol2, mcol3 = st.columns(3)
         mcol1.metric("Return on Investment", f"{evm_results['ROI_Percentage']:.1f}%")
         mcol2.metric("Total Net Savings", f"${evm_results['NPV']:,.0f}")
-        mcol3.metric("Payback Period", f"{evm_results['Payback_Period_Years'] * 12:.1f} Months")
+        mcol3.metric("Payback Period", payback_metric_str, help="Breakeven Point = Implementation Cost / Annual Savings. This is completely independent of your contract length slider.")
         
         st.subheader("Group 2 & 3: TCO Comparison")
         tcol1, tcol2 = st.columns(2)
-        tcol1.metric("Cost If You Do Nothing", f"${evm_results['Baseline_3Yr_TCO']:,.0f}")
-        tcol2.metric("Cost With Snowflake", f"${evm_results['Proposed_3Yr_TCO']:,.0f}", delta=f"-${total_savings:,.0f} Delta", delta_color="inverse")
+        tcol1.metric("Cost If You Do Nothing", f"${evm_results['Baseline_Lifecycle_TCO']:,.0f}")
+        tcol2.metric("Cost With Snowflake", f"${evm_results['Proposed_Lifecycle_TCO']:,.0f}", delta=f"-${total_savings:,.0f} Delta", delta_color="inverse")
         
         sizing = evm_results["Infrastructure_Sizing"]
         st.markdown(f"*Includes ~{sizing['Estimated_Annual_Credits']:,.0f} Credits/Yr compute and {sizing['Estimated_Storage_TB']:,.0f} TB/Month storage.*")
@@ -131,7 +136,11 @@ with tab2:
             
         with vcol3:
             st.markdown("### 🛡️ Risk Reduction")
-            st.warning("**Qualitative Value**")
+            rr_val = next(iter(buckets.get("Risk Reduction (Esteem & Exchange Value)", {}).values()), 0)
+            if isinstance(rr_val, (int, float)) and rr_val > 0:
+                st.success(f"**+${rr_val:,.0f} / year**")
+            else:
+                st.warning("**Qualitative Value**")
             st.caption("Secure data sharing & governed quantitative models.")
             
         st.divider()
@@ -143,18 +152,17 @@ with tab2:
         st.divider()
         st.subheader("📥 Export Deliverable")
         
-        # Build the dynamic markdown readout
         export_text = f"""# Value Engineering Executive Readout: BlackRock Aladdin
         
 ## Executive Summary
 Migrating {int(migration_pct*100)}% of Aladdin’s risk workloads yields:
 - **${total_savings:,.0f}** total savings over {contract_length} years
-- **{evm_results['Payback_Period_Years'] * 12:.1f}-month** payback period
+- **{payback_str}** payback period
 - **{evm_results['ROI_Percentage']:.1f}%** Return on Investment
 
 ## Financial Breakdown
-- **Baseline Cost (Do Nothing)**: ${evm_results['Baseline_3Yr_TCO']:,.0f}
-- **Proposed Cost (Snowflake)**: ${evm_results['Proposed_3Yr_TCO']:,.0f}
+- **Baseline Cost (Do Nothing)**: ${evm_results['Baseline_Lifecycle_TCO']:,.0f}
+- **Proposed Cost (Snowflake)**: ${evm_results['Proposed_Lifecycle_TCO']:,.0f}
 - **Total Net Savings**: ${evm_results['NPV']:,.0f}
 
 *(Includes ~{sizing['Estimated_Annual_Credits']:,.0f} Credits/Yr compute and {sizing['Estimated_Storage_TB']:,.0f} TB/Month storage)*
@@ -162,7 +170,7 @@ Migrating {int(migration_pct*100)}% of Aladdin’s risk workloads yields:
 ## Value Drivers
 - **Cost Reduction**: +${next(iter(buckets.get("Cost Reduction (Cost Value)", {}).values()), 0):,.0f}/yr (Infrastructure compression)
 - **Revenue Enablement**: +${next(iter(buckets.get("Revenue Enablement (Use Value)", {}).values()), 0):,.0f}/yr (Faster simulations)
-- **Risk Reduction**: Qualitative (Secure data sharing & governance)
+- **Risk Reduction**: +${next(iter(buckets.get("Risk Reduction (Esteem & Exchange Value)", {}).values()), 0):,.0f}/yr (Compliance & Audit Savings)
 """
         st.download_button(
             label="Download 1-Page Executive Readout (Markdown)",
